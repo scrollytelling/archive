@@ -1,6 +1,11 @@
 # Let's Export Scrollytelling
 
-## Step 3 **(You are here)**
+## Landing pages **(You are here)**
+
+We need an HTML page of sorts to explain what the archive is and what it
+contains. This tool generates those HTML pages, based on an account's `index.json`.
+
+This is a node/JS project.
 
 ``` shell
 # install required software:

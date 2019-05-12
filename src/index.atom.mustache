@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 
-<feed xmlns="http://www.w3.org/2005/Atom">
+<feed xmlns="http://www.w3.org/2005/Atom" xmlns:media="http://search.yahoo.com/mrss/">
 
 	<title>{{ account.name }}</title>
 	<subtitle>Scrollytelling archive</subtitle>
@@ -16,23 +16,31 @@
 	<entry>
 		<title>{{ title }}</title>
 		<link rel="alternate" type="text/html" href="{{{ canonical_url }}}" hreflang="{{ locale }}"/>
-		{{#image_files}}
-		<link rel="enclosure" type="{{{ content_type }}}" href="{{{ url }}}" length="{{ size }}" width="{{ width }}" height="{{ height }}"/>
-		{{/image_files}}
-		{{#video_files}}
-		<link rel="enclosure" href="{{{ url }}}" type="{{{ content_type }}}" length="{{ size }}"/>
-		{{/video_files}}
-		{{#audio_files}}
-		<link rel="enclosure" type="{{{ content_type }}}" href="{{{ url }}}" length="{{ size }}"/>
-		{{/audio_files}}
 		<id>tag:scrollytelling.com,2018:{{ slug }}</id>
 		<updated>{{ updated_at }}</updated>
 		<published>{{ published_at }}</published>
 		<summary>{{ summary }}</summary>
+		<media:thumbnail url="/{{{ slug }}}/screenshots/{{{ account.hostname }}}-{{{ slug }}}.jpg" width="320" height="240"/>
 		{{#author}}<author>
 			<name>{{ author }}</name>
 		</author>{{/author}}
 		{{#credits}}<rights>{{ credits }}</rights>{{/credits}}
+
+		{{#image_files}}
+		<enclosure length="{{{ file_size }}}" type="{{{ content_type }}}" url="/{{{ path }}}" />
+		<media:content url="/{{{ path }}}" fileSize="{{{ file_size }}}" type="{{{ content_type }}}"
+		{{/image_files}}
+
+		{{#video_files}}
+		<enclosure length="{{{ file_size }}}" type="{{{ content_type }}}" url="/{{{ path }}}" />
+		<media:content url="/{{{ path }}}" fileSize="{{{ file_size }}}" type="{{{ content_type }}}"
+		{{/video_files}}
+
+		{{#audio_files}}
+		<enclosure length="{{{ file_size }}}" type="{{{ content_type }}}" url="/{{{ path }}}" />
+		<media:content url="/{{{ path }}}" fileSize="{{{ file_size }}}" type="{{{ content_type }}}"
+		{{/audio_files}}
+
 	</entry>
 	{{/entries}}
 
