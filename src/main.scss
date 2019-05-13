@@ -22,6 +22,53 @@ $link: #133472;
     }
 }
 
+.image-hover {
+  position: relative;
+  overflow: hidden;
+
+  .overlay {
+    background: black;
+    position: absolute;
+    height: 99%;
+    width: 100%;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    opacity: 0;
+    transition: all 0.4s ease-in-out 0s;
+  }
+
+  &:hover .overlay {
+    opacity: 0.5;
+  }
+
+  .stats {
+    position: absolute;
+    text-align: center;
+    padding-left: 1em;
+    padding-right: 1em;
+    width: 100%;
+    top: 50%;
+    left: 50%;
+    opacity: 0;
+    transform: translate(-50%, -50%);
+    transition: all 0.3s ease-in-out 0s;
+    color: white;
+  }
+
+  &:hover .stats {
+    opacity: 1;
+  }
+
+}
+
+.gallery {
+  width: 148px;
+  height: 100px;
+  overflow: hidden;
+}
+
 .list {
   h2.title {
     margin-top: 0;

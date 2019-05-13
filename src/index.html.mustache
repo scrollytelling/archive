@@ -60,19 +60,29 @@
                   </div>
                 </div>
               </div>
-              <p>{{ entries.length}} entries</p>
-              <div class="list">
+              <p>{{ entries.length }} entries</p>
+              <div class="box list">
                 {{#entries}}
                 <article class="media">
-                  <div class="media-left gallery">
-                    <a rel="archives" href="{{ slug }}/screenshots/{{ account.hostname }}-{{ slug }}.jpg" title="Screenshot of {{ title }} opening page">
-                      <img src="{{ slug }}/screenshots/{{ account.hostname }}-{{ slug }}.jpg" alt="Thumbnail image of {{ title }} opening page">
-                    </a>
+                  <div class="media-left gallery" title="Screenshots of «{{ title }}»">
+                    {{#screenshots}}
+                    <div class="image-hover">
+                      <a href="{{ . }}">
+                        <div class="overlay"></div>
+                        <img src="{{{ . }}}" alt="{{ title }} screenshot">
+                        <div class="stats">{{ screenshots.length }} pages</div>
+                      </a>
+                    </div>
+                    {{/screenshots}}
                   </div>
-                  <div class="media-content is-clearfix">
-                    <time class="published is-pulled-right" datetime="{{ published_at }}">{{ published_at }}</time>
-                    <h2 class="title"><a hreflang="{{ locale }}" href="{{ slug }}">{{ title }}</a></h2>
-                    {{#author}}<p class="subtitle author">@{{ author }}</p>{{/author}}
+                  <div class="media-content">
+                    <div class="content">
+                      <small>
+                        <time class="published" datetime="{{ published_at }}">{{ published_at }}</time>
+                      </small>
+                      <h2 class="title"><a hreflang="{{ locale }}" href="{{ slug }}">{{ title }}</a></h2>
+                      {{#author}}<p class="subtitle author">{{ author }}</p>{{/author}}
+                    </div>
                   </div>
                 </article>
                 {{/entries}}
