@@ -8,6 +8,7 @@ $primary: $mint;
 $link: #133472;
 
 @import "../node_modules/bulma/bulma";
+@import "./overrides/baguetteBox";
 
 .scrolly {
     border-radius: 6px;
@@ -72,7 +73,12 @@ $link: #133472;
 .list {
   h2.title {
     margin-top: 0;
+		margin-bottom: 0.8em;
   }
+
+	p.subtitle {
+		margin-bottom: 0.3em;
+	}
 
   img {
     width: 148px;

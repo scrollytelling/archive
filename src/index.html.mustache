@@ -67,10 +67,10 @@
                   <div class="media-left gallery" title="Screenshots of «{{ title }}»">
                     {{#screenshots}}
                     <div class="image-hover">
-                      <a href="{{ . }}">
+                      <a href="{{ . }}" title="Preview mode: all pages presented as images in a slideshow">
                         <div class="overlay"></div>
                         <img src="{{{ . }}}" alt="{{ title }} screenshot">
-                        <div class="stats">{{ screenshots.length }} pages</div>
+                        <div class="stats">Preview {{ screenshots.length }} pages</div>
                       </a>
                     </div>
                     {{/screenshots}}
@@ -81,7 +81,8 @@
                         <time class="published" datetime="{{ published_at }}">{{ published_at }}</time>
                       </small>
                       <h2 class="title"><a hreflang="{{ locale }}" href="{{ slug }}">{{ title }}</a></h2>
-                      {{#author}}<p class="subtitle author">{{ author }}</p>{{/author}}
+                      {{#author}}<h4 class="subtitle author">{{ author }}</h4>{{/author}}
+                      <p>{{{ summary }}}</p>
                     </div>
                   </div>
                 </article>
