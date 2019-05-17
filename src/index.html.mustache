@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>{{account.name}} Scrollytelling archive</title>
+    <title>{{ account.name }} Scrollytelling archive</title>
     <link rel="preload" as="style" href="/archive/archive.css">
     <link rel="stylesheet" href="/archive/archive.css">
     <link rel="preload" href="/archive/archive.js" as="script">
@@ -69,7 +69,7 @@
                     <div class="image-hover">
                       <a href="{{ . }}" title="Preview mode: all pages presented as images in a slideshow">
                         <div class="overlay"></div>
-                        <img src="{{{ . }}}" alt="{{ title }} screenshot">
+                        <img src="/{{ slug }}/screenshots/{{ account.hostname }}-{{ slug }}_280.jpg" alt="{{ title }} title card">
                         <div class="stats">Preview {{ screenshots.length }} pages</div>
                       </a>
                     </div>
