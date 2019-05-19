@@ -1,7 +1,7 @@
 {
   "name": "scrollies",
   "private": true,
-  "version": "1.0.0",
+  "version": "1.1.0",
   "description": "Scrollytelling archive builder",
   "dependencies": {
     "baguettebox.js": "^1.11.0",
