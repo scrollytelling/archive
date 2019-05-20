@@ -65,15 +65,15 @@
                 {{#entries}}
                 <article class="media">
                   <div class="media-left gallery" title="Screenshots of «{{ title }}»">
-                    {{#screenshots}}
+                    {{#screenshots.pages}}
                     <div class="image-hover">
-                      <a href="{{ . }}" title="Preview mode: all pages presented as images in a slideshow">
+                      <a href="{{ pages }}" title="Preview mode: all pages presented as images in a slideshow">
                         <div class="overlay"></div>
-                        <img src="{{{ . }}}" alt="{{ title }} screenshot">
+                        <img src="{{{ screenshots.title_card }}}" alt="{{ title }} screenshot">
                         <div class="stats">Preview {{ screenshots.length }} pages</div>
                       </a>
                     </div>
-                    {{/screenshots}}
+                    {{/screenshots.pages}}
                   </div>
                   <div class="media-content">
                     <div class="content">
