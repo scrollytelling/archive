@@ -67,10 +67,10 @@
                   <div class="media-left gallery" title="Screenshots of «{{ title }}»">
                     {{#screenshots.pages}}
                     <div class="image-hover">
-                      <a href="{{ pages }}" title="Preview mode: all pages presented as images in a slideshow">
+                      <a href="{{ screenshots.title_card }}" title="Preview mode: all pages presented as images in a slideshow">
                         <div class="overlay"></div>
-                        <img src="{{{ screenshots.title_card }}}" alt="{{ title }} screenshot">
-                        <div class="stats">Preview {{ screenshots.length }} pages</div>
+                        <img src="/{{ slug }}/screenshots/{{ account.hostname }}-{{ slug }}_280.jpg" alt="{{ title }} screenshot">
+                        <div class="stats">Preview {{ screenshots.pages.length }} pages</div>
                       </a>
                     </div>
                     {{/screenshots.pages}}
@@ -108,7 +108,10 @@
               <p>Curated on <time datetime="{{ archive.created_at }}">{{ archive.created_at }}</time>
                 by {{#archive.curators}}<a href="mailto:{{ email }}">{{ name }}</a>{{/archive.curators}}.</p>
               <p>Also available as <a href="index.atom">RSS (Atom)</a> and <a href="index.json">JSON (JavaScript)</a>.</p>
-              <p>The authenticity of this archive is verifyable using these <a href="/SHA512SUMS" title="To verify, use this command: sha512sum -c SHA512SUMS">checksums</a>.
+	      <p>The authenticity of this archive is verifyable using these <a href="/SHA512SUMS" title="To verify, use this command: sha512sum -c SHA512SUMS">checksums</a>.</p>
+
+	      <p><a rel="license" href="http://creativecommons.org/licenses/by/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by/4.0/88x31.png" /></a><br /><span xmlns:dct="http://purl.org/dc/terms/" property="dct:title">This archive</span> by <a xmlns:cc="http://creativecommons.org/ns#" href="https://www.scrollytelling.com" property="cc:attributionName" rel="cc:attributionURL">Scrollytelling</a> is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by/4.0/">Creative Commons Attribution 4.0 International License</a>.<br />Based on the {{ account.name }} stories at <a xmlns:dct="http://purl.org/dc/terms/" href="https://{{ account.hostname }}" rel="dct:source">{{ account.hostname }}</a>.</p>
+	      <p>It means that you are free to copy parts of this archive (i.e. this page, the data files, and the screenshots), as long as you attribute them to us. Keep in mind that this applies to the archive only, <strong>not the stories themselves</strong>, whose creators overwhelmingly kept all rights reserved (meaning don't copy anything).</p>
             </div>
           </div>
         </div>
