@@ -9,7 +9,7 @@ This is a node/JS project.
 
 ``` shell
 # install required software:
-npm install
+yarn install
 
 # start a local development environment
 npm start

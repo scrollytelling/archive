@@ -1,14 +1,12 @@
 const path = require('path');
-const devMode = process.env.NODE_ENV !== 'production'
+const HtmlWebpackPlugin = require('html-webpack-plugin');
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 const OptimizeCSSAssetsPlugin = require("optimize-css-assets-webpack-plugin");
-const postcssPresetEnv = require('postcss-preset-env');
 const UglifyJsPlugin = require('uglifyjs-webpack-plugin');
 
 module.exports = {
   entry: './src/index.js',
   output: {
-    filename: 'archive.js',
     path: path.resolve(__dirname, 'dist')
   },
   optimization: {
@@ -21,15 +19,8 @@ module.exports = {
       new OptimizeCSSAssetsPlugin({})
     ]
   },
-  plugins: [
-    new MiniCssExtractPlugin({
-      filename: devMode ? "[name].css" : '[name].[hash].css',
-      chunkFilename: devMode ? "[id].css" : '[id].[hash].css'
-    })
-  ],
   module: {
-    rules: [
-      {
+    rules: [{
         test: /\.m?js$/,
         exclude: /(node_modules|bower_components)/,
         use: {
@@ -39,6 +30,53 @@ module.exports = {
           }
         }
       },
+      {
+        test: /\.scss$/,
+        use: [
+          MiniCssExtractPlugin.loader,
+          {
+            loader: 'css-loader'
+          },
+          {
+            loader: 'sass-loader',
+            options: {
+              sourceMap: true,
+              // options...
+            }
+          }
+        ]
+      },
+      {
+        test: /\.css$/,
+        exclude: /node_modules/,
+        use: [
+          {
+            loader: 'style-loader'
+          },
+          {
+            loader: 'css-loader',
+            options: {
+              importLoaders: 1
+            }
+          },
+          {
+            loader: 'postcss-loader'
+          }
+        ]
+      },
+      {
+        test: /\.(png|jpg|svg|gif)$/,
+        use: [
+          'file-loader'
+        ]
+      },
+      {
+        test: /\.mustache$/,
+        use: [
+          'mustache-loader'
+        ]
+      }
+
       // {
       //   test: / ?\.(sa|sc|c)ss$/,
       //   exclude: /node_modules/,
@@ -61,16 +99,6 @@ module.exports = {
       //     },
       //     'sass-loader'
       //   ]
-      // },
-      // {
-      //     test: /\.(png|jp(e*)g|svg)$/,
-      //     use: [{
-      //         loader: 'url-loader',
-      //         options: {
-      //             limit: 8000, // Convert images < 8kb to base64 strings
-      //             name: 'images/[hash]-[name].[ext]'
-      //         }
-      //     }]
       // },
       // {
       //   test: /\.html$/,

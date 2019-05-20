@@ -2,8 +2,8 @@ import baguetteBox from 'baguettebox.js';
 import List from 'list.js';
 import * as moment from 'moment';
 
-// import './main.scss';
-// import template from './index.html.mustache';
+import './main.scss';
+import template from './index.html.mustache';
 
 var locale = window.navigator.userLanguage || window.navigator.language
 
