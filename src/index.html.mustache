@@ -60,29 +60,35 @@
                   </div>
                 </div>
               </div>
+
               <p>{{ entries.length }} entries</p>
+
               <div class="box list">
                 {{#entries}}
                 <article class="media">
-                  <div class="media-left gallery" title="Screenshots of «{{ title }}»">
-                    {{#screenshots.pages}}
-                    <div class="image-hover">
-                      <a href="{{ screenshots.title_card }}" title="Preview mode: all pages presented as images in a slideshow">
-                        <div class="overlay"></div>
-                        <img src="/{{ slug }}/screenshots/{{ account.hostname }}-{{ slug }}_280.jpg" alt="{{ title }} screenshot">
-                        <div class="stats">Preview {{ screenshots.pages.length }} pages</div>
-                      </a>
-                    </div>
-                    {{/screenshots.pages}}
-                  </div>
+                  <figure class="media-left">
+                    <p class="image is-4by3">
+                      <img src="{{ screenshots.title_card }}" alt="{{ title }} screenshot">
+                    </p>
+                  </figure>
+
+                  {{#screenshots.pages}}
+                  <link href="{{ . }}" as="media">
+                  {{/screenshots.pages}}
+
                   <div class="media-content">
                     <div class="content">
+                      <p class="title is-4">{{ title }}</p>
+                      <p class="subtitle is-6">{{ author }}</p>
+                      {{{ summary }}}
+                      <br>
+                      <a title="Opens a slideshow with images">Preview {{ screenshots.pages.length }} pages</a>
+                      |
+                      <a hreflang="{{ locale }}" href="{{ slug }}">Go to story</a>
+                      <br>
                       <small>
                         <time class="published" datetime="{{ published_at }}">{{ published_at }}</time>
                       </small>
-                      <h2 class="title"><a hreflang="{{ locale }}" href="{{ slug }}">{{ title }}</a></h2>
-                      {{#author}}<h4 class="subtitle author">{{ author }}</h4>{{/author}}
-                      <p>{{{ summary }}}</p>
                     </div>
                   </div>
                 </article>

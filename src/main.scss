@@ -1,14 +1,27 @@
 @charset "utf-8";
 
+/* Coolors Exported Palette - coolors.co/fdc5f5-f7aef8-b388eb-8093f1-c3e2dd */
+$color1: rgba(253, 197, 245, 1);
+$color2: rgba(247, 174, 248, 1);
+$color3: rgba(179, 136, 235, 1);
+$color4: rgba(128, 147, 241, 1);
+$color5: rgba(195, 226, 221, 1); // i.e. scrolly #c3e2dd
+
+/* Customize Bulma using their predefined variables. */
+$turquoise: $color5;
+$blue: $color4;
+$purple: $color3;
+$cyan: $color2;
+
+@import '../node_modules/bulma/bulma';
 @import '../node_modules/baguettebox.js/dist/baguetteBox';
-@import "../node_modules/bulma/sass/utilities/initial-variables";
-$mint: #c3e2dd;
-
-$primary: $mint;
-$link: #133472;
-
-@import "../node_modules/bulma/bulma";
 @import "./overrides/baguetteBox";
+
+.content figure {
+  margin-left: 0;
+  margin-bottom: 1em;
+  width: 140px;
+}
 
 .scrolly {
     border-radius: 6px;
@@ -64,12 +77,6 @@ $link: #133472;
 
 }
 
-.gallery {
-  width: 148px;
-  height: 100px;
-  overflow: hidden;
-}
-
 .list {
   h2.title {
     margin-top: 0;
@@ -79,11 +86,6 @@ $link: #133472;
 	p.subtitle {
 		margin-bottom: 0.3em;
 	}
-
-  img {
-    width: 148px;
-    height: 100px;
-  }
 }
 
 .footer {
