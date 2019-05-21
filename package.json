@@ -5,8 +5,8 @@
   "description": "Scrollytelling archive builder",
   "dependencies": {
     "baguettebox.js": "^1.11.0",
+    "dayjs": "^1.8.14",
     "list.js": "^1.5.0",
-    "moment": "^2.24.0",
     "mustache-loader": "^1.4.3",
     "perfundo": "^4.0.4",
     "postcss-scss": "^2.0.0"

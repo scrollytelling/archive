@@ -1,19 +1,16 @@
 import baguetteBox from 'baguettebox.js';
 import List from 'list.js';
-import * as moment from 'moment';
+import dayjs from 'dayjs';
 
 // import './main.scss';
 // import template from './index.html.mustache';
 
-var locale = window.navigator.userLanguage || window.navigator.language
-
-moment.locale(locale)
 baguetteBox.run('.screenshots')
 
 var times = document.querySelectorAll('time')
 for(var i=0; i<times.length; i++) {
   var datetime = times[i].getAttribute('datetime')
-  var published = moment(datetime)
+  var published = dayjs(datetime)
   times[i].innerHTML = published.format("dddd D MMMM YYYY, h:mm:ss")
 }
 
