@@ -8,7 +8,7 @@ import * as moment from 'moment';
 var locale = window.navigator.userLanguage || window.navigator.language
 
 moment.locale(locale)
-baguetteBox.run('.gallery')
+baguetteBox.run('.screenshots')
 
 var times = document.querySelectorAll('time')
 for(var i=0; i<times.length; i++) {

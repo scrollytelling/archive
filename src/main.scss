@@ -17,10 +17,17 @@ $cyan: $color2;
 @import '../node_modules/baguettebox.js/dist/baguetteBox';
 @import "./overrides/baguetteBox";
 
-.content figure {
-  margin-left: 0;
-  margin-bottom: 1em;
-  width: 140px;
+.screenshots {
+  figure {
+    margin-left: 0;
+    margin-bottom: 1em;
+    display: none;
+    width: 140px;
+
+    &:first-of-type {
+      display: block;
+    }
+  }
 }
 
 .scrolly {
@@ -36,7 +43,7 @@ $cyan: $color2;
     }
 }
 
-.image-hover {
+.screenshot {
   position: relative;
   overflow: hidden;
 
