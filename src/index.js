@@ -14,7 +14,7 @@ for(var i=0; i<times.length; i++) {
   times[i].innerHTML = published.format("dddd D MMMM YYYY, h:mm:ss")
 }
 
-var entries = new List('scrollies', {
+new List('scrollies', {
   valueNames: [
     'title',
     'author',
@@ -22,5 +22,15 @@ var entries = new List('scrollies', {
   ],
   fuzzySearch: {
     searchClass: 'search'
+  }
+})
+
+// Toggler: add class 'is-open' to link href with class 'will-open'.
+document.addEventListener('click', function(event) {
+  if(event.target.classList.contains('will-collapse')) {
+    event.preventDefault()
+    var subject = document.querySelector(event.target.hash)
+    subject.style.maxHeight = `${subject.scrollHeight}px`
+    subject.classList.toggle('is-collapsed')
   }
 })

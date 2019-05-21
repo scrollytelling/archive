@@ -84,6 +84,18 @@ $cyan: $color2;
 
 }
 
+#about {
+  overflow: hidden;
+  // https://codepen.io/kriede/pen/RVYXZW
+  // max-height is set by Javascript
+  transition: .5s ease-out;
+
+  &.is-collapsed {
+    max-height: 0 !important;
+    transition: .5s ease-in;
+  }
+}
+
 .list {
   h2.title {
     margin-top: 0;

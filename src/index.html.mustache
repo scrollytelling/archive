@@ -32,7 +32,38 @@
           <div class="columns">
             <div class="column is-10-desktop is-offset-1-desktop">
               <h1 class="title is-2 is-spaced">{{ account.name }}</h1>
-              <h2 class="subtitle is-4">Scrollytelling archive</h2>
+              <h2 class="subtitle is-4">
+                Scrollytelling archive
+                <a class="will-collapse has-text-link is-size-6 is-italic" href="#about">(what’s that now?)</a>
+              </h2>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="about" class="hero is-small is-light is-collapsed">
+      <div class="hero-body">
+        <div class="container">
+          <div class="columns">
+            <div class="column">
+              <h2 class="title is-3 is-spaced">Scrollytelling was Software-as-a-Service for creating engaging multimedia stories.</h2>
+              <h3 class="title is-5">We've shuttered the business in January 2019, but nevertheless are very committed to keeping all stories available. You are looking at the archived works of {{account.name}}.</h3>
+            </div>
+          </div>
+
+          <div class="columns">
+            <div class="column">
+              <p>If you haven't pressed any buttons, the most recently published story is shown at the top. However by pressing a few buttons and/or typing into the search field, you can reorder the list to your heart's content.</p>
+              <p>🙈</p>
+            </div>
+            <div class="column">
+              <p>Click on a story <strong>image</strong>, and a slideshow opens, revealing the story's pages. In this view, the pages have been reduced to single images. They show you how the story is <em>supposed to look</em>. But it also means you cannot touch.</p>
+            </div>
+            <div class="column">
+              <p>Click on <strong>Open story</strong>, and you're taken to the story itself. Video, audio, the whole shebang is at your disposal. Every story we archive runs perfectly at the time of writing.</p>
+              <p>But entropy is a real thing, a hard universal rule, even.</p>
+              <p>If you happen to find yourself in, say, the year of our Lord 2144—hi, btw—I'm willing to bet something on the page is broken. No, a fix will not ever be deployed. Learn to accept these defects, as you have accepted your large ears, and your inability form close relationships.</p>
             </div>
           </div>
         </div>
@@ -53,7 +84,7 @@
                 </div>
                 <div class="field">
                   <label class="label">Sort by</label>
-                  <div class="control">
+                  <div so brightly class="control">
                     <button class="button is-light sort" data-sort="title">Title</button>
                     <button class="button is-light sort" data-sort="author">Author</button>
                     <button class="button is-light sort" data-sort="published">Date</button>
@@ -68,7 +99,7 @@
                 <article class="media screenshots" itemscope itemtype="http://schema.org/ImageGallery">
                   {{#screenshots.pages}}
                   <figure class="media-left screenshot" itemprop="associatedMedia" itemscope itemtype="http://schema.org/ImageObject">
-                    <a class="image is-4by3" href="{{ . }}" itemprop="contentUrl">
+                    <a title="You are watching a static slideshow. Close this popup to open the story itself." class="image is-4by3" href="{{ . }}" itemprop="contentUrl">
                       <div class="overlay"></div>
                       <img src="{{ . }}" alt="{{ title }} screenshot">
                       <div class="stats">Preview {{ screenshots.pages.length }} pages</div>
@@ -102,28 +133,37 @@
       <div class="container">
         <div class="columns">
           <div class="column is-6-desktop">
-            <img src="/archive/scrollytelling.png" alt="Scrollytelling">
-            <p class="has-text-weight-bold">Scrollytelling was Software-as-a-Service for creating engaging multimedia stories.</p>
-            <p>We've shuttered the business in January 2019, but nevertheless are very committed to keeping all stories available. You are looking at the archived works of {{account.name}}.</p>
-        </div>
-          <div class="column is-6-desktop">
+            <h3 class="title is-3">Scrollytelling</h3>
             <div class="content">
-              <h3>Archive</h3>
+              <p>Founded early 2017 by <strong>Martijn van Tol</strong> and <strong>Joost Baaij</strong>. Shuttered late 2018. She shone briefly, but oh, did she shine brightly.</p>
+            </div>
+            <hr>
+            <div class="content has-text-centered">
+              <p>Life is also death. ⚰️</p>
+              <p><a href="https://www.scrollytelling.com">www.scrollytelling.com</a></p>
+              <img src="/archive/scrollytelling.png" alt="Scrollytelling">
+            </div>
+          </div>
+          <div class="column is-6-desktop">
+            <h3 class="title is-3">Archive</h3>
+            <div class="content">
               <p>Curated on <time datetime="{{ archive.created_at }}">{{ archive.created_at }}</time>
                 by {{#archive.curators}}<a href="mailto:{{ email }}">{{ name }}</a>{{/archive.curators}}.</p>
               <p>Also available as <a href="index.atom">RSS (Atom)</a> and <a href="index.json">JSON (JavaScript)</a>.</p>
-	      <p>The authenticity of this archive is verifyable using these <a href="/SHA512SUMS" title="To verify, use this command: sha512sum -c SHA512SUMS">checksums</a>.</p>
-
-	      <p><a rel="license" href="http://creativecommons.org/licenses/by/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by/4.0/88x31.png" /></a><br /><span xmlns:dct="http://purl.org/dc/terms/" property="dct:title">This archive</span> by <a xmlns:cc="http://creativecommons.org/ns#" href="https://www.scrollytelling.com" property="cc:attributionName" rel="cc:attributionURL">Scrollytelling</a> is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by/4.0/">Creative Commons Attribution 4.0 International License</a>.<br />Based on the {{ account.name }} stories at <a xmlns:dct="http://purl.org/dc/terms/" href="https://{{ account.hostname }}" rel="dct:source">{{ account.hostname }}</a>.</p>
-	      <p>It means that you are free to copy parts of this archive (i.e. this page, the data files, and the screenshots), as long as you attribute them to us. Keep in mind that this applies to the archive only, <strong>not the stories themselves</strong>, whose creators overwhelmingly kept all rights reserved (meaning don't copy anything).</p>
+	            <p>The authenticity of this archive is verifyable using these <a href="/SHA512SUMS" title="To verify, use this command: sha512sum -c SHA512SUMS">checksums</a>.</p>
+            </div>
+            <div class="content">
+	             <p><a rel="license" href="http://creativecommons.org/licenses/by/4.0/"><img alt="Creative Commons License CC BY 4.0" src="https://i.creativecommons.org/l/by/4.0/88x31.png" /></a><br />
+               <span xmlns:dct="http://purl.org/dc/terms/" property="dct:title">This archive</span> by <a xmlns:cc="http://creativecommons.org/ns#" href="https://www.scrollytelling.com" property="cc:attributionName" rel="cc:attributionURL">Scrollytelling</a> is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by/4.0/">Creative Commons Attribution 4.0 International License</a>. Based on the <cite>{{ account.name }}</cite> stories at <a xmlns:dct="http://purl.org/dc/terms/" href="https://{{ account.hostname }}" rel="dct:source">{{ account.hostname }}</a>.
+               </p>
+	             <p class="has-text-grey-light">It means that you are free to copy parts of this archive (i.e. this page, the data files, and the screenshots), as long as you attribute them to us. Keep in mind that this applies to the archive only, <span class="has-text-weight-semibold">not the stories themselves</span>, whose creators overwhelmingly kept all rights reserved (meaning don't copy anything).
+               </p>
             </div>
           </div>
         </div>
 
         <div class="columns" style="margin-top: 3rem; margin-bottom: 3rem;">
           <div class="column is-12-desktop has-text-centered">
-            <p>Life is also death. ⚰️</p>
-            <p><a href="https://www.scrollytelling.com">www.scrollytelling.com</a></p>
           </div>
         </div>
 
