@@ -22,6 +22,7 @@ webpack
 node-sass src/main.scss dist/archive.css
 postcss --use autoprefixer --output dist/archive.css dist/archive.css
 gzip --force --keep dist/archive.css dist/archive.js
+mkdir -p ${root_dir}/archive
 cp dist/* ${root_dir}/archive
 cp images/scrollytelling.png ${root_dir}/archive
 
