@@ -108,9 +108,9 @@
                 <article class="media screenshots" itemscope itemtype="http://schema.org/ImageGallery">
                   {{#screenshots.pages}}
                   <figure class="media-left screenshot" itemprop="associatedMedia" itemscope itemtype="http://schema.org/ImageObject">
-                    <a title="You are watching a static slideshow. Close this popup to open the story itself." class="image is-4by3" href="{{{ . }}}" itemprop="contentUrl">
+                    <a title="You are watching a static slideshow. Close this popup to open the story itself." class="image is-4by3" href="{{{ . }}}.jpg" itemprop="contentUrl">
                       <div class="overlay"></div>
-                      <img src="{{{ . }}}" alt="{{ title }} screenshot">
+                      <img src="{{{ . }}}_280.jpg" alt="{{ title }} screenshot">
                       <div class="stats">Preview {{ screenshots.pages.length }} pages</div>
                     </a>
                   </figure>
